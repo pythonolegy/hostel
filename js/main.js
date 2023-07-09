@@ -29,11 +29,18 @@
         $(".offcanvas-menu-overlay").removeClass("active");
     });
 
+    /*------------------
+		Navigation
+	--------------------*/
+    $(".mobile-menu").slicknav({
+        prependTo: '#mobile-menu-wrap',
+        allowParentLinks: true
+    });
 
     /*------------------
         Hero Slider
     --------------------*/
-   $(".hero-slider").owlCarousel({
+    $(".hero-slider").owlCarousel({
         loop: true,
         margin: 0,
         items: 1,
