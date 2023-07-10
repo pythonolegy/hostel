@@ -87,3 +87,34 @@
     $("select").niceSelect();
 
 })(jQuery);
+
+function listenForm() {
+    const formElement = document.getElementById('form'); // извлекаем элемент формы
+    formElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
+        // теперь можно извлечь данные
+        const name = formData.get('name');
+        const surname = formData.get('surname');
+        const phone = formData.get('phone');
+        const notes = formData.get('notes');
+        sendTelegram(name, surname, phone, notes);
+        e.target.reset();
+
+
+    });
+}
+
+function sendTelegram(clientName, surname, phone, notes="-") {
+
+    var data = "Imie: "+ clientName + ", Nazwisko: " + surname + ", Telefon: " + phone + ", Uwagi: " + notes
+    console.log(phone)
+    if(phone.length > 0) {
+        return $.ajax({
+            type: "POST",
+            url: "https://api.telegram.org/bot6379152979:AAElV7Za4ALK1oeTITaAqAahrdcsGRjjSX4/sendMessage?chat_id=-1001976855282",
+            data: "parse_mode=HTML&text=" + encodeURIComponent(data),
+
+        })
+    }
+}
