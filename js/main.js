@@ -108,7 +108,6 @@ function listenForm() {
 function sendTelegram(clientName, surname, phone, notes="-") {
 
     var data = "Imie: "+ clientName + ", Nazwisko: " + surname + ", Telefon: " + phone + ", Uwagi: " + notes
-    console.log(phone)
     if(phone.length > 0) {
         return $.ajax({
             type: "POST",
