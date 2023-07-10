@@ -721,7 +721,8 @@ ul, ol {
 .hp-room-items .hp-room-item .hr-text h2 {
 	color: #dfa974;
 	font-weight: 700;
-	margin-bottom: 50px;
+	/*margin-bottom: 50px;*/
+	margin-bottom: 250px;
 	-webkit-transition: all 0.2s;
 	-o-transition: all 0.2s;
 	transition: all 0.2s;
