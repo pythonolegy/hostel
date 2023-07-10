@@ -105,16 +105,4 @@ function listenForm() {
     });
 }
 
-function sendTelegram(clientName, surname, phone, notes="-") {
 
-    var data = "У вас новая заявка с сайта:\n Imię: "+ clientName + ",\n Nazwisko: " + surname + ",\n Telefon: " + phone + ",\n Uwagi: " + notes
-        + "\nНе забудь отметить"
-    if(phone.length > 0) {
-        return $.ajax({
-            type: "POST",
-            url: "https://api.telegram.org/bot6379152979:AAElV7Za4ALK1oeTITaAqAahrdcsGRjjSX4/sendMessage?chat_id=-1001976855282",
-            data: "parse_mode=HTML&text=" + encodeURIComponent(data),
-
-        })
-    }
-}
